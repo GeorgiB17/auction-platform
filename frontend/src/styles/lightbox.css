@@ -1,0 +1,70 @@
+/* REMOVE weird default gradient / overlay */
+.yarl__container::before,
+.yarl__container::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* REMOVE unwanted bottom fade effect */
+.yarl__root,
+.yarl__container {
+  background: rgba(0, 0, 0, 0.88) !important;
+}
+
+/* THUMBNAIL BAR CLEAN FIX */
+.yarl__thumbnails_container {
+  background: rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  margin: 12px;
+}
+
+/* optional: remove any gradient inside thumbnails */
+.yarl__thumbnails_container::before,
+.yarl__thumbnails_container::after {
+  display: none !important;
+}
+
+/* ===== BACKDROP ===== */
+.yarl__container {
+  background: rgba(0, 0, 0, 0.88);
+}
+
+/* ===== MAIN IMAGE ===== */
+.yarl__slide_image {
+  border-radius: 6px;
+}
+
+/* ===== THUMBNAIL BAR ===== */
+.yarl__thumbnails_container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 20px;
+  margin: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== THUMBNAILS ===== */
+.yarl__thumbnails_thumbnail {
+  border-radius: 12px;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.yarl__thumbnails_thumbnail:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ACTIVE THUMBNAIL */
+.yarl__thumbnails_thumbnail_active {
+  opacity: 1;
+  border: 2px solid #ef4444; /* HDM red */
+  transform: scale(1.08);
+}
+
+/* ===== CLOSE BUTTON ===== */
+.yarl__button[aria-label="Close"] {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}

@@ -1,0 +1,5 @@
+site_name: Auctionplatform Documentation
+
+nav:
+  - Home: index.md
+  - Adrs: adrs.md

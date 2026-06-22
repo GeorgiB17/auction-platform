@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  STUDENT
+  MITARBEITER
+}
+
+model User {
+  id               String     @id @default(cuid())
+  username         String     @unique
+  role             Role       @default(STUDENT)
+
+  auctions         Auction[]
+  bids             Bid[]
+  favorites        Favorite[]
+  notifications    Notification[]
+}
+
+model Auction {
+  id                String    @id @default(cuid())
+  title             String
+  description       String    @db.Text
+  start_price       Decimal   @db.Decimal(10, 2)
+  current_price     Decimal   @db.Decimal(10, 2)
+  year_purchased    Int
+  end_at            DateTime
+
+  bids              Bid[]
+  images            Image[]
+
+  created_at        DateTime  @default(now())
+  updated_at        DateTime  @updatedAt
+  
+  created_by_id     String
+  created_by        User      @relation(fields: [created_by_id], references: [id])
+  
+  is_deleted        Boolean   @default(false)
+  is_hidden         Boolean   @default(false)
+  favorites         Favorite[]
+  notifications     Notification[]
+}
+
+model Bid {
+  id                String    @id @default(cuid())
+  amount            Decimal   @db.Decimal(10, 2)
+  created_at        DateTime  @default(now())
+  
+  auction_id        String
+  auction           Auction   @relation(fields: [auction_id], references: [id])
+  
+  user_id           String
+  user              User      @relation(fields: [user_id], references: [id])
+}
+
+model Favorite {
+  id           String   @id @default(cuid())
+  user_id      String
+  user         User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  auction_id   String
+  auction      Auction  @relation(fields: [auction_id], references: [id], onDelete: Cascade)
+  created_at   DateTime @default(now())
+
+  @@unique([user_id, auction_id])
+}
+
+model Notification {
+  id           String   @id @default(cuid())
+  user_id      String
+  user         User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  auction_id   String
+  auction      Auction  @relation(fields: [auction_id], references: [id], onDelete: Cascade)
+  type         String   @default("outbid")
+  message      String
+  is_read      Boolean  @default(false)
+  send_email   Boolean  @default(false)
+  created_at   DateTime @default(now())
+}
+
+model Image {
+  id                String    @id @default(cuid())
+  url               String
+  auction_id        String
+  auction           Auction   @relation(fields: [auction_id], references: [id])
+}
