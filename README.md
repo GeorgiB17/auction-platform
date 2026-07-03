@@ -1,19 +1,19 @@
-# 🏷️ HdM Auction Platform
+#  HdM Auction Platform
 
 A modern full-stack auction platform developed for the auctioning of old devices and equipment from Hochschule der Medien (HdM).
 
 The platform allows authenticated users to browse available items, place bids in real time, and track auction activity through a responsive and user-friendly interface.
 
-## ✨ Features
+##  Features
 
-### 🔐 Authentication & Security
+###  Authentication & Security
 - LDAP login using HdM credentials
 - Secure user authentication
 - Session management with HTTP-only cookies
 - Protected API routes
 - User-specific bidding functionality
 
-### 🛒 Auction System
+###  Auction System
 - Browse active auctions
 - View detailed item information
 - Place bids on available items
@@ -21,19 +21,19 @@ The platform allows authenticated users to browse available items, place bids in
 - Track current highest bids
 - Real-time auction updates
 
-### ⚡ Real-Time Bidding
+###  Real-Time Bidding
 - WebSocket-based communication
 - Instant bid updates without page refresh
 - Live synchronization between connected users
 - Immediate feedback on auction activity
 
-### 🎨 Modern User Experience
+###  Modern User Experience
 - Responsive design for desktop, tablet, and mobile devices
 - Clean and modern interface
 - Fast and intuitive navigation
 - Optimized user flow for browsing and bidding
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - React
@@ -57,8 +57,6 @@ The platform allows authenticated users to browse available items, place bids in
 ### Real-Time Communication
 - WebSockets
 
-
-## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -146,11 +144,11 @@ Frontend: http://localhost:5173
 Backend:  http://localhost:3000
 ```
 
-## 🎯 Use Case
+## Use Case
 
 The HdM Auction Platform was created to simplify the sale and redistribution of older devices and equipment no longer needed by Hochschule der Medien. Instead of manually managing offers, users can participate in transparent and competitive auctions through a centralized web platform.
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - Auction categories
 - Search and filtering
@@ -162,16 +160,16 @@ The HdM Auction Platform was created to simplify the sale and redistribution of 
 - Auction analytics
 - Automatic auction closing
 
-## 📸 Screenshots
+##  Screenshots
 
 --
-## 👨‍💻 Authors
+##  Authors
 
 Developed as a university project at Hochschule der Medien (HdM).
 
 - Georgi Bozhilski
 - Asim Jugo
 
-## 📄 License
+
 
 This project is intended for educational purposes and university-related use.
